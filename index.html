@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ahmed saleh </title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- زر القائمة -->
+    <div class="top">
+      <h1>Neda case study</h1>
+      <button id="menu-toggle">☰</button>
+    </div>
+    <div id="controls">
+      <h3 class="title">الأنواع</h3>
+      <div id="typeFilters">جاري تحميل البيانات...</div>
+    </div>
+    <div class="iframe">
+      <iframe id="websiteFrame" src="" frameborder="0"></iframe>
+    </div>
+    <div id="table-container">
+      <div id="data-section">
+        <h3 class="title">البيانات</h3>
+        <div id="info">جاري تحميل البيانات...</div>
+      </div>
+      <div id="map"></div>
+    </div>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const controls = document.getElementById("controls");
+      const tableContainer = document.getElementById("table-container");
+
+      menuToggle.addEventListener("click", () => {
+        controls.classList.toggle("active"); // عرض أو إخفاء controls
+        tableContainer.classList.toggle("active"); // عرض أو إخفاء table-container
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

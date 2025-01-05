@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 7fr 2fr;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+    height: 100vh;
+  }
+
+  #controls {
+    background: linear-gradient(90deg, #512ca8 0%, #6441c1 100%);
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    padding: 10px;
+    overflow-y: auto;
+    text-align: left;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .iframe {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  .iframe iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  #table-container {
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    gap: 10px;
+  }
+
+  #data-section {
+    background: linear-gradient(90deg, #512ca8 0%, #6441c1 100%);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+  }
+
+  #map {
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+
+  .type-item {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .type-item button {
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+  }
+
+  .toggle-btn {
+    color: white;
+  }
+
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
+  }
+
+  .label {
+    font-weight: bold;
+  }
+  .top {
+    display: none;
+  }
+  /* التصميم المتجاوب للشاشات الصغيرة */
+  @media (max-width: 1150px) {
+    body {
+      grid-template-columns: 1fr; /* جعل الأعمدة تتحول إلى عمود واحد */
+      grid-template-rows: 1fr;
+    }
+
+    #data-section {
+      display: none; /* إخفاء قسم البيانات */
+    }
+
+    .iframe {
+      position: fixed; /* تعويم الـ iframe إلى الأسفل */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 93%; /* استخدام نصف الشاشة */
+      z-index: 10;
+    }
+
+    #controls {
+      position: fixed;
+      top: 0;
+      left: -100%; /* مخفي خارج الشاشة */
+      width: 75%; /* عرض القائمة */
+      height: 54vh;
+      z-index: 200;
+      box-sizing: border-box;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+      transition: left 0.3s ease-in-out; /* تأثير الانتقال */
+    }
+    #table-container {
+      position: fixed;
+      bottom: -33vh;
+      left: -100%; /* مخفي خارج الشاشة */
+      width: 75%; /* عرض القائمة */
+      height: 80vh;
+      background: #fff;
+      z-index: 20;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+      transition: left 0.3s ease-in-out; /* تأثير الانتقال */
+    }
+
+    #controls.active,
+    #table-container.active {
+      left: 0; /* إظهار القائمة */
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      align-items: center;
+      position: fixed;
+      right: 0;
+      left: 0;
+      background: #512ca8;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 30;
+      height: 36px;
+    }
+    .top h1 {
+      font-size: 20px;
+      margin: 5px;
+    }
+    #menu-toggle {
+      background: #512ca8;
+      color: white;
+      font-size: 23px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 30;
+    }
+  }
